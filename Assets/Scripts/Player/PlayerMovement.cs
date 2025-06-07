@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
-    public int forwardForce = 1000;
-    public int lateralForce = 800;
+    public int forwardForce;
+    public int lateralForce;
     private InputSystem_Actions playerControls;
     private Vector2 moveInput;
 
@@ -37,6 +37,6 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
         float horizontalForce = moveInput.x * lateralForce * Time.fixedDeltaTime;
-        rb.AddForce(horizontalForce, 0, 0);
+        rb.AddForce(horizontalForce, 0, 0, ForceMode.VelocityChange);
     }
 }

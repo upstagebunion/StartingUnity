@@ -8,6 +8,8 @@ public class PlayerCollision : MonoBehaviour
         if (collision.collider.tag.Equals("Obstacle"))
         {
             movement.enabled = false;
+            GameManager gameManager = (GameManager)FindAnyObjectByType(typeof(GameManager));
+            gameManager.EndGame();
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

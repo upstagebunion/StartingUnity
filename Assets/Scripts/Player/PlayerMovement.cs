@@ -38,5 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
         float horizontalForce = moveInput.x * lateralForce * Time.fixedDeltaTime;
         rb.AddForce(horizontalForce, 0, 0, ForceMode.VelocityChange);
+
+        if (rb.position.y < -1f)
+        {
+            GameManager gameManager = (GameManager)FindAnyObjectByType(typeof(GameManager));
+            gameManager.EndGame();
+        }
     }
 }
